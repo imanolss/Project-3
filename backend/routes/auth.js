@@ -32,8 +32,10 @@ router.post('/edit', isAuth, (req, res, next) => {
 })
 
 router.delete('/delete', (req, res, next) => {
+
   User.findByIdAndDelete(req.user._id)
     .then(user => res.status(200).json({ user }))
+  
     .catch(err => console.log(err))
 })
 

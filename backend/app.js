@@ -20,12 +20,13 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
-app.use(
-  cors({
-    credentials: true,
-    origin: [process.env.FRONTENDPOINT]
-  })
-);
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'https://jolly-poincare-d006a1.netlify.com');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 
 app.use(
   session({

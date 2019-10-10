@@ -27,7 +27,7 @@ class MedicineForm extends Component {
 
     const { params } = this.props.match
     if (params.id) {
-      axios.get(`https://mysterious-mesa-15778.herokuapp.com/medicine/${params.id}`)
+      axios.get(`https://vast-sierra-07180.herokuapp.com/medicine/${params.id}`)
 
       //-----------------------------------------------------------
 
@@ -46,7 +46,7 @@ class MedicineForm extends Component {
     e.preventDefault();
     const { medicine, form } = this.state;
     if (form.title === 'Edit') {
-      axios.put(`https://mysterious-mesa-15778.herokuapp.com${form.endpoint}`, medicine)
+      axios.put(` https://vast-sierra-07180.herokuapp.com${form.endpoint}`, medicine)
 
       //axios.put(`https://frozen-plateau-10025.herokuapp.com${form.endpoint}`, recipe)
 

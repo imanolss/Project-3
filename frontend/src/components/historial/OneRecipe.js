@@ -17,7 +17,7 @@ export default class OneRecipe extends Component {
     if (!localStorage.user) return this.props.history.push('/login')
     const userInfo = localStorage.user
     const {params} = this.props.match
-    axios.get(`https://mysterious-mesa-15778.herokuapp.com/recipe/${params.id}`)
+    axios.get(` https://vast-sierra-07180.herokuapp.com/recipe/${params.id}`)
     //axios.get(`https://frozen-plateau-10025.herokuapp.com/recipe${params.id}`)
 
     .then(({ data: { oneRecipe }}) => {this.setState({ oneRecipe })

@@ -30,7 +30,7 @@ class RecipeForm extends Component {
 
     const { params } = this.props.match
     if (params.id) {
-      axios.get(`https://mysterious-mesa-15778.herokuapp.com/recipe/${params.id}`)
+      axios.get(` https://vast-sierra-07180.herokuapp.com/recipe/${params.id}`)
 
       //-----------------------------------------------------------
 
@@ -49,7 +49,7 @@ class RecipeForm extends Component {
     e.preventDefault();
     const { recipe, form } = this.state;
     if (form.title === 'Edit') {
-      axios.put(`https://mysterious-mesa-15778.herokuapp.com${form.endpoint}`, recipe)
+      axios.put(` https://vast-sierra-07180.herokuapp.com${form.endpoint}`, recipe)
 
       //axios.put(`https://frozen-plateau-10025.herokuapp.com${form.endpoint}`, recipe)
 

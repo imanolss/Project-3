@@ -13,7 +13,6 @@ router.post('/recipe', async (req, res, next)=>{
       institution
     }
     const currentUser = req.user
-    console.log(req.user)
     const userRecipe = await Recipe.create(newRecipe)
     await User.findByIdAndUpdate(currentUser._id, { $push: { recipe: userRecipe } })
     res.status(201).json({ newRecipe })
@@ -24,7 +23,6 @@ router.post('/recipe', async (req, res, next)=>{
 
 router.get('/recipes', async (req, res , next)=>{
   const user = await User.findById(req.user).populate('recipe')
-  console.log('-----------------------------', req.user)
   const receta = user.recipe
   res.status(200).json({receta})
 })
