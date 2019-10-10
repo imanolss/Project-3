@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import MY_SERVICE from '../../services/recipes'
 import {Link} from 'react-router-dom'
+import { PageHeader, Button, Layout,  Form, Input} from 'antd'
 
 
 class RecipeForm extends Component {
@@ -29,7 +30,7 @@ class RecipeForm extends Component {
 
     const { params } = this.props.match
     if (params.id) {
-      axios.get(`http://localhost:3000/recipe/${params.id}`)
+      axios.get(`https://mysterious-mesa-15778.herokuapp.com/recipe/${params.id}`)
 
       //-----------------------------------------------------------
 
@@ -48,7 +49,7 @@ class RecipeForm extends Component {
     e.preventDefault();
     const { recipe, form } = this.state;
     if (form.title === 'Edit') {
-      axios.put(`http://localhost:3000${form.endpoint}`, recipe)
+      axios.put(`https://mysterious-mesa-15778.herokuapp.com${form.endpoint}`, recipe)
 
       //axios.put(`https://frozen-plateau-10025.herokuapp.com${form.endpoint}`, recipe)
 
@@ -102,10 +103,17 @@ class RecipeForm extends Component {
   };
 
   render() {
+    const { Footer } = Layout
     const { recipe, form } = this.state;
     console.log(this.props)
     return (
       <div>
+        <PageHeader
+            title="MediRecord"
+            subTitle="The next step in healthcare"
+            avatar={{ src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7iSJt663UDm-lTTFdSAKHgGQwE5PZdDJGA-UK1wPAjKFhUPioZw' }}
+             >
+          </PageHeader>
          
         <h1  style={{ width: '50vw' }}>{form.title}</h1>
         <form action="" onSubmit={this.onSubmit}>
@@ -119,6 +127,7 @@ class RecipeForm extends Component {
           <button type='submit' value={form.button}>{form.button}</button>
         </form>
         <Link to="/recipes"><button type="submit" value="Login">Cancel</button></Link>
+        <Footer style={{ textAlign: 'center' }}>Ironhack ©2019 Created by Imanol</Footer>
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import MEDICINE_SERVICE from '../../services/medicines'
 import {Link} from 'react-router-dom'
+import { PageHeader, Button, Layout,  Form, Input} from 'antd'
 
 
 class MedicineForm extends Component {
@@ -26,7 +27,7 @@ class MedicineForm extends Component {
 
     const { params } = this.props.match
     if (params.id) {
-      axios.get(`http://localhost:3000/medicine/${params.id}`)
+      axios.get(`https://mysterious-mesa-15778.herokuapp.com/medicine/${params.id}`)
 
       //-----------------------------------------------------------
 
@@ -45,7 +46,7 @@ class MedicineForm extends Component {
     e.preventDefault();
     const { medicine, form } = this.state;
     if (form.title === 'Edit') {
-      axios.put(`http://localhost:3000${form.endpoint}`, medicine)
+      axios.put(`https://mysterious-mesa-15778.herokuapp.com${form.endpoint}`, medicine)
 
       //axios.put(`https://frozen-plateau-10025.herokuapp.com${form.endpoint}`, recipe)
 
@@ -94,11 +95,17 @@ class MedicineForm extends Component {
   };
 
   render() {
+    const { Footer } = Layout
     const { medicine, form } = this.state;
-    console.log(this.props)
+  
     return (
       <div>
-         
+          <PageHeader
+            title="MediRecord"
+            subTitle="The next step in healthcare"
+            avatar={{ src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7iSJt663UDm-lTTFdSAKHgGQwE5PZdDJGA-UK1wPAjKFhUPioZw' }}
+             >
+          </PageHeader>
         <h1  style={{ width: '50vw' }}>{form.title}</h1>
         <form action="" onSubmit={this.onSubmit}>
           <input type="text"  onChange={this.handleInputs} name="name" placeholder="Nombre del medicamento"/>
@@ -110,6 +117,7 @@ class MedicineForm extends Component {
           <button type='submit' value={form.button}>{form.button}</button>
         </form>
         <Link to="/medicines"><button type="submit" value="Login">Cancel</button></Link>
+        <Footer style={{ textAlign: 'center' }}>Ironhack ©2019 Created by Imanol</Footer>
       </div>
     );
   }

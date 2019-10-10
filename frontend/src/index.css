@@ -10,3 +10,42 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.ja {
+  text-align:center;
+  padding-top: 12vh;
+  height: 40vh;
+  line-height: 150px;
+  overflow: hidden;
+  width: 100vw;
+background-image: url('https://img.freepik.com/foto-gratis/doctor-sujetando-estetoscopio_23-2147822716.jpg?size=626&ext=jpg');
+background-repeat: no-repeat;
+background-position: center;
+background-size: 100vh;
+  }
+
+  .je {
+    text-align:center;
+    padding-top: 12vh;
+    height: 40vh;
+    line-height: 150px;
+    overflow: hidden;
+    width: 100vw;
+  background-image: url('https://www.cyfluent.com/wp-content/uploads/2014/05/shutterstock_90266317.jpg');
+  background-size: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+    }
+
+    .ji {
+      text-align:center;
+    padding-top: 12vh;
+    height: 40vh;
+    line-height: 150px;
+    overflow: hidden;
+    width: 100vw;
+  background-image: url('https://image.freepik.com/foto-gratis/paciente-que-escucha-atentamente-doctor-sexo-masculino-que-explica-sintomas-paciente-o-que-hace-pregunta-mientras-que-discuten-papeleo-juntos-consulta_1423-1367.jpg');
+  background-size: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+    }

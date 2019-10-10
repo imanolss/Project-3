@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AUTH_SERVICE from '../../services/auth'
-import { MyContext } from '../../context/index'
+import { PageHeader, Button, Layout,  Form, Input} from 'antd' 
 import {Link} from 'react-router-dom'
 
 export default class Login extends Component {
@@ -20,8 +20,6 @@ export default class Login extends Component {
      e.preventDefault()
      AUTH_SERVICE.login(this.state.user)
      .then((response) => {
-      //this.context.logUser= response.data.user
-      //console.log(response.data.user)  
       localStorage.setItem('user', JSON.stringify(response.data.user))
       this.props.history.push('/profile')
     })
@@ -31,23 +29,41 @@ export default class Login extends Component {
     }
 
   render() {
+    const { Footer } = Layout
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
-          <label htmlFor="">correo</label>
-          <input type="text" onChange={this.handleInput} name='email' placeholder='correo'  />
-          <br/>
-          <label htmlFor="">password</label>
-          <input type="password" onChange={this.handleInput} name='password' placeholder='Password'/>
-          <br/>
-          <input type="submit" value='Login' />
-        </form>
 
-        <p>Create your account here</p>
-        <Link to="/signup"> <button  type="submit" value="submit">Signup</button> </Link>
+         <PageHeader
+            title="MediRecord"
+            subTitle="The next step in healthcare"
+            avatar={{ src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7iSJt663UDm-lTTFdSAKHgGQwE5PZdDJGA-UK1wPAjKFhUPioZw' }}
+             >
+          </PageHeader>
+          <h1>Login</h1>
+
+          <Form  onSubmit={this.onSubmit} styles={{textAlign: 'center'}}>
+        <Form.Item label="Correo electrónico" styles={{margin:'10vw'}} >
+          <Input type="text" onChange={this.handleInput} name='email' placeholder='Ej. carlos@correo.com' />
+        </Form.Item>
+        <Form.Item label="Contraseña" styles={{margin:'10vw'}} >
+          <Input type="password" onChange={this.handleInput} name='password' placeholder='Password' />
+        </Form.Item>
+
+        <Form.Item >
+          <Button type='submit' htmlType="submit" value='Login' style={{background: '#1890ff', color:'white', fontWeight:'Bolder'}}>
+            Login
+          </Button>
+        </Form.Item>
+      </Form>
+
+        <p>¿Aún no tienes tu cuenta?</p>
+        <p>Créala aquí</p>
+        <Link to="/signup"><Button type="submit" value="Signup" type="primary" style={{border:'1.5px solid #fffff ', fontWeight:'bold',}}>
+                Signup
+              </Button></Link>
+              <br/>
+        <Footer style={{ textAlign: 'center' }}>Ironhack ©2019 Created by Imanol</Footer>
       </div>
     )
   }
 }
-
-//Login.contextType = MyContext

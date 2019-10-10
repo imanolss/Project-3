@@ -3,6 +3,7 @@ import {MyContext} from '../../context'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import MEDICINE_SERVICE from '../../services/medicines'
+import { PageHeader, Button, Layout,  Form, Input} from 'antd'
 
 export default class Medicines extends Component {
 
@@ -38,15 +39,21 @@ export default class Medicines extends Component {
   }
 
   render() {
-
+    const { Footer } = Layout
     const {allmedicines} = this.state
 
     return (
       <div>
+         <PageHeader
+            title="MediRecord"
+            subTitle="The next step in healthcare"
+            avatar={{ src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7iSJt663UDm-lTTFdSAKHgGQwE5PZdDJGA-UK1wPAjKFhUPioZw' }}
+             >
+          </PageHeader>
         <br/>
          <div>
           Medicamentos que se toma actualmente
-       <p>Medicines name</p>
+       
         </div>
         <br/>
         <Link to="/medicine/create"><button type="submit" value="Login">create</button></Link>
@@ -72,7 +79,7 @@ export default class Medicines extends Component {
            )
            })}
        </div>
-      
+       <Footer style={{ textAlign: 'center' }}>Ironhack ©2019 Created by Imanol</Footer>
 
       </div>
     )

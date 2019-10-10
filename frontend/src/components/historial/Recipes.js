@@ -3,6 +3,7 @@ import {MyContext} from '../../context'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import MY_SERVICE from '../../services/recipes'
+import { PageHeader, Button, Layout,  Form, Input} from 'antd'
 
 export default class Historial extends Component {
 
@@ -38,15 +39,22 @@ export default class Historial extends Component {
   }
 
   render() {
+    const { Footer } = Layout
 
     const {allrecipes} = this.state
 
     return (
       <div>
+        <PageHeader
+            title="MediRecord"
+            subTitle="The next step in healthcare"
+            avatar={{ src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7iSJt663UDm-lTTFdSAKHgGQwE5PZdDJGA-UK1wPAjKFhUPioZw' }}
+             >
+          </PageHeader>
         <br/>
          <div>
-          Historial médico
-       <p>recipes name</p>
+         
+       <h3> Historial médico</h3>
         </div>
         <br/>
         <Link to="/recipe/create"><button type="submit" value="Login">create</button></Link>
@@ -71,7 +79,7 @@ export default class Historial extends Component {
            })}
        </div>
       
-
+       <Footer style={{ textAlign: 'center' }}>Ironhack ©2019 Created by Imanol</Footer>
       </div>
     )
   }
